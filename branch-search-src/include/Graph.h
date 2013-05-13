@@ -28,7 +28,7 @@ class Graph
         Set<Vertex> neighbours(std::string vertex);      //List all vertexs connected to specified node
         bool addEdge(Vertex vertex1, Vertex vertex2, float weight); //Adds the edge from vertex1 to vertex2 if it isn't already in the graph also creates the vertexs returns true on successful add
         float getVertexHueristic(std::string vertex); //Get how far away the vertex is from the goal
-        bool createGraph(const char* filepath, const char* heurpath);   //loads the given text file and creates a graph from it
+        bool createGraph(const char* filepath);   //loads the given text file and creates a graph from it
         bool contains(std::string vertex); //Check if the vertex exists with the graph
 
         bool addVertex(Vertex newVert); //Checks if the vertex isn't already in the graph and then adds it

@@ -171,18 +171,15 @@ float Graph::getVertexHueristic(std::string vertex)
 Takes in two file paths then opens them and gets the helper function
 loadHeuristic to load the heuristic graph, then if that succeeds it
 loads the graph file and creates the vertices and egdes*/
-bool Graph::createGraph(const char* filepath, const char* heurPath)
+bool Graph::createGraph(const char* filepath)
 {
     std::ifstream graphFile; //File stream objects to hold the open file data from the OS
-    std::ifstream heurFile; //Ditto but for the heuristic file
     bool retVal = false; //By default assume we failed to load the files
 
     graphFile.open(filepath, std::ios::in); //Open the input file for reading to create the graph
-    heurFile.open(heurPath, std::ios::in); //Ditto but for heuristic file
 
-    if(graphFile.is_open() && heurFile.is_open()) //If we opened the file ie found it.
+    if(graphFile.is_open()) //If we opened the file ie found it.
     {
-        Set<Vertex> heurVerts = loadHeuristics(heurFile); //Try to load the heuristics file into the graph
         do
         {
             std::string line;
@@ -203,46 +200,8 @@ bool Graph::createGraph(const char* filepath, const char* heurPath)
                 Vertex vert1; //Holds the vertexs we find
                 Vertex vert2;
 
-                //Search for the given vertex in the heuristics graph it should be there or else the search will degrade horribly
-                //The only vertex that shouldn't be in the heuristic graph will be the goal vertex we are trying to get to
-                //SInce it's the goal it has no heuristic to get to itself
-                Pair<Vertex, bool> foundVertex = findVertexByName(heurVerts, vert1Name);
-
-                if(foundVertex.second == true)  //If we did find the vertex YAY
-                {
-                    vert1 = foundVertex.first; //Set vert1 to the vertex we found in the heuristic graph for use later in creating the edge
-                    if(debug)
-                    {
-                        std::cout << "successfully found " << vert1Name << " in heuristics graph" << std::endl;
-                    }
-                }
-                else //We couldnt find one so create it
-                {
-                    vert1 = Vertex(vert1Name, -1.0f); //Create a fake vertex that is going to break the search if it's not the goal vertex
-                    if(debug)
-                    {
-                        std::cout << "Couldn't find " << vert1Name << " in the heuristics graph unless this is the goal vertex your going to have SERIOUS problems settings heuristic to -1.0" << std::endl;
-                    }
-                }
-
-                //Search for the second given vertex in the heuristic graph it should be there or else this will be bad
-                foundVertex = findVertexByName(heurVerts, vert2Name);
-                if(foundVertex.second == true)
-                {
-                    vert2 = foundVertex.first; //Set vert2 to the second vertex if we found it
-                    if(debug)
-                    {
-                        std::cout << "successfully found " << vert2Name << " in heuristics graph" << std::endl;
-                    }
-                }
-                else //We couldnt find one so create it
-                {
-                    vert2 = Vertex(vert2Name, -1.0f);//Create a fake vertex that is going to break the search if it's not the goal vertex
-                    if(debug)
-                    {
-                        std::cout << "Couldn't find " << vert2Name << " in the heuristics graph unless this is the goal vertex your going to have SERIOUS problems settings heuristic to -1.0" << std::endl;
-                    }
-                }
+                vert1 = Vertex(vert1Name, -1.0f); //Create a fake vertex that is going to break the search if it's not the goal vertex
+                vert2 = Vertex(vert2Name, -1.0f);//Create a fake vertex that is going to break the search if it's not the goal vertex
 
                 //Give the data we found to addEdge so it can create and add the edge
                 addEdge(vert1, vert2, weight);
@@ -258,7 +217,7 @@ bool Graph::createGraph(const char* filepath, const char* heurPath)
     }
     else //Failed to find start and end within graph
     {
-        std::cout << "Failed to open file " << filepath << " or " << heurPath << " please check the file path given" << std::endl;
+        std::cout << "Failed to open file " << filepath << " please check the file path given" << std::endl;
         retVal = false;
     }
 

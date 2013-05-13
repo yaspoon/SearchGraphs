@@ -27,7 +27,7 @@ int main(int argc, char* argv[])
 
     for(int i = 0; i < argc; i++) //Read in the command line args so we don't have to retrieve them interactively
     {
-        if(strcmp(argv[i], "-debug") == 0) //should we ouput debug info
+        if(strcmp(argv[i], "-debug") == 0 || strcmp(argv[i], "-d") == 0) //should we ouput debug info
         {
             debug = true;
         }
@@ -41,7 +41,7 @@ int main(int argc, char* argv[])
             }
         }
 
-        if(strcmp(argv[i], "-startTemp") == 0) //set the defaul start temperature
+        if(strcmp(argv[i], "-startTemp") == 0 || strcmp(argv[i], "-s") == 0) //set the defaul start temperature
         {
             if(argc >= (i + 1) )
             {
@@ -49,7 +49,7 @@ int main(int argc, char* argv[])
             }
         }
 
-        if(strcmp(argv[i], "-tempDec") == 0) //set the temperature decrement or cooling
+        if(strcmp(argv[i], "-tempDec") == 0 || strcmp(argv[i], "-t") == 0) //set the temperature decrement or cooling
         {
             if(argc >= (i + 1) )
             {

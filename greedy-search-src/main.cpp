@@ -40,34 +40,34 @@ int main(int argc, char* argv[])
     //Read any flags from the command line and set the appropriate option
     for(int i = 0; i < argc; i++)
     {
-        if(strcmp((argv[i]), "-debug") == 0)    //Check if debug flag passed
+        if(strcmp((argv[i]), "-debug") == 0 || strcmp((argv[i]), "-d") == 0)    //Check if debug flag passed
         {
             cout << "Enabling debug mode" << endl;
             debug = true;
         }
 
-        if(strcmp((argv[i]), "-graph") == 0)    //Check if graph path was passed
+        if(strcmp((argv[i]), "-graph") == 0 || strcmp((argv[i]), "-g") == 0)    //Check if graph path was passed
         {
             cout << "Setting graph path to " << argv[i+1] << endl;
             graphpath = argv[i+1];
             graphFlag = true;
         }
 
-        if(strcmp((argv[i]), "-heuristic") == 0)    //CHeck if heuristic path was passed
+        if(strcmp((argv[i]), "-heuristic") == 0 || strcmp((argv[i]), "-h") == 0)    //CHeck if heuristic path was passed
         {
             cout << "Setting heuristic path to " << argv[i+1] << endl;
             heurpath = argv[i+1];
             heurFlag = true;
         }
 
-        if(strcmp((argv[i]), "-start") == 0)    //Did the user give us a starting vertex
+        if(strcmp((argv[i]), "-start") == 0 || strcmp((argv[i]), "-s") == 0)    //Did the user give us a starting vertex
         {
             cout << "Setting start vertex to " << argv[i+1] << endl;
             startVertex = argv[i+1];
             startFlag = true;
         }
 
-        if(strcmp((argv[i]), "-end") == 0)  //Did the user give us a end vertex
+        if(strcmp((argv[i]), "-end") == 0 || strcmp((argv[i]), "-e") == 0)  //Did the user give us a end vertex
         {
             cout << "Setting end vertex to " << argv[i+1] << endl;
             endVertex = argv[i+1];

@@ -23,7 +23,7 @@ SimmulatedAnnealing::SimmulatedAnnealing()
 
 SimmulatedAnnealing::~SimmulatedAnnealing()
 {
-    //dtor
+
 }
 
 /*

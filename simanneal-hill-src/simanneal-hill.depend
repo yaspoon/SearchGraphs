@@ -40,3 +40,39 @@
 	"LinkedListNode.h"
 	<iostream>
 
+1368457843 source:/home/brock/curtin/2013/ami300/ami300assignment/simanneal-hill-src/main.cpp
+	<iostream>
+	"SimmulatedAnnealing.h"
+	<fstream>
+	<string.h>
+
+1368452670 /home/brock/curtin/2013/ami300/ami300assignment/simanneal-hill-src/include/SimmulatedAnnealing.h
+	<string>
+	"LinkedList.h"
+	"Point.h"
+
+1368359761 /home/brock/curtin/2013/ami300/ami300assignment/simanneal-hill-src/include/LinkedList.h
+	"LinkedListNode.h"
+	"Iterator.h"
+
+1368332621 /home/brock/curtin/2013/ami300/ami300assignment/simanneal-hill-src/include/LinkedListNode.h
+	<algorithm>
+
+1368258287 /home/brock/curtin/2013/ami300/ami300assignment/simanneal-hill-src/include/Iterator.h
+	"LinkedListNode.h"
+	<iostream>
+
+1368452210 /home/brock/curtin/2013/ami300/ami300assignment/simanneal-hill-src/include/Point.h
+
+1368452140 source:/home/brock/curtin/2013/ami300/ami300assignment/simanneal-hill-src/src/Point.cpp
+	"Point.h"
+
+1368453186 source:/home/brock/curtin/2013/ami300/ami300assignment/simanneal-hill-src/src/SimmulatedAnnealing.cpp
+	"SimmulatedAnnealing.h"
+	<fstream>
+	<iostream>
+	<sstream>
+	"Point.h"
+	"LinkedList.h"
+	"cmath"
+
