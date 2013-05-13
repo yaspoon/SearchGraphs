@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>branch-search build log</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+<body>
+<tt>
+Build started on: <u>12-05-2013 at 19:54.45</u><br />
+Build ended on: <u>12-05-2013 at 19:54.46</u><p />
+<b>-------------- Build: debug in branch-search (compiler: GNU GCC Compiler)---------------</b><br />
+g++ -Wall -fexceptions  -pedantic -Wall -g    -Iinclude -Iinclude  -c /home/brock/curtin/2013/ami300/Assignment/branch-search/main.cpp -o obj/Debug/main.o<br />
+g++ -Wall -fexceptions  -pedantic -Wall -g    -Iinclude -Iinclude  -c /home/brock/curtin/2013/ami300/Assignment/branch-search/src/BranchSearch.cpp -o obj/Debug/src/BranchSearch.o<br />
+/home/brock/curtin/2013/ami300/Assignment/branch-search/src/BranchSearch.cpp: In member function "void BranchSearch::search(std::string, std::string)":<br />
+<font color="#0000ff">/home/brock/curtin/2013/ami300/Assignment/branch-search/src/BranchSearch.cpp:50:14: warning: variable "goalFound" set but not used [-Wunused-but-set-variable]</font><br />
+         bool goalFound = false;         //Did we find the goal in the end<br />
+              ^<br />
+g++ -Wall -fexceptions  -pedantic -Wall -g    -Iinclude -Iinclude  -c /home/brock/curtin/2013/ami300/Assignment/branch-search/src/Graph.cpp -o obj/Debug/src/Graph.o<br />
+g++ -Wall -fexceptions  -pedantic -Wall -g    -Iinclude -Iinclude  -c /home/brock/curtin/2013/ami300/Assignment/branch-search/src/Path.cpp -o obj/Debug/src/Path.o<br />
+g++  -o bin/Debug/greedy-search obj/Debug/main.o obj/Debug/src/BranchSearch.o obj/Debug/src/Edge.o obj/Debug/src/Graph.o obj/Debug/src/Path.o obj/Debug/src/Vertex.o<br />
+Output size is 226.36 KB<br />
+<font color="#0000ff">Process terminated with status 0 (0 minutes, 1 seconds)</font><br />
+<font color="#0000ff">0 errors, 1 warnings (0 minutes, 1 seconds)</font><br />
+</tt>
+</body>
+</html>

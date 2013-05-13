@@ -1,0 +1,203 @@
+# depslib dependency file v1.0
+1368208816 source:/home/brock/curtin/2013/ami300/Assignment/greedy-search/main.cpp
+	<iostream>
+	"Graph.h"
+	"Common.h"
+	<string.h>
+	"Edge.h"
+	"Vertex.h"
+	"GreedySearch.h"
+
+1368251598 source:/home/brock/curtin/2013/ami300/Assignment/greedy-search/src/Graph.cpp
+	"Graph.h"
+	<iostream>
+	<fstream>
+	<sstream>
+	"Common.h"
+
+1368251930 /home/brock/curtin/2013/ami300/Assignment/greedy-search/include/Graph.h
+	"Vertex.h"
+	<utility>
+	"Set.h"
+	"Edge.h"
+	<fstream>
+
+1368210435 /home/brock/curtin/2013/ami300/Assignment/greedy-search/include/Vertex.h
+	<string>
+
+1368253969 source:/home/brock/curtin/2013/ami300/Assignment/greedy-search/src/Vertex.cpp
+	"Vertex.h"
+	<cmath>
+
+1368256990 /home/brock/curtin/2013/ami300/Assignment/greedy-search/include/Set.h
+	"LinkedList.h"
+	"Pair.h"
+	"Stack.h"
+
+1368258110 /home/brock/curtin/2013/ami300/Assignment/greedy-search/include/LinkedList.h
+	"LinkedListNode.h"
+	"Iterator.h"
+
+1368253474 /home/brock/curtin/2013/ami300/Assignment/greedy-search/include/LinkedListNode.h
+	<algorithm>
+
+1368254999 /home/brock/curtin/2013/ami300/Assignment/greedy-search/include/Iterator.h
+	"LinkedListNode.h"
+	<iostream>
+
+1368252144 /home/brock/curtin/2013/ami300/Assignment/greedy-search/include/Pair.h
+
+1368253084 /home/brock/curtin/2013/ami300/Assignment/greedy-search/include/Edge.h
+	"Vertex.h"
+
+1368252578 source:/home/brock/curtin/2013/ami300/Assignment/greedy-search/src/Edge.cpp
+	"Edge.h"
+	<cmath>
+
+1368252740 /home/brock/curtin/2013/ami300/Assignment/greedy-search/include/Common.h
+
+1367831606 source:/home/brock/curtin/2013/sem1/ami300/Assignment/greedy-search/main.cpp
+	<iostream>
+	"Graph.h"
+	"Common.h"
+	<string.h>
+	"Edge.h"
+	"Vertex.h"
+
+1367831555 /home/brock/curtin/2013/sem1/ami300/Assignment/greedy-search/include/Graph.h
+	"Vertex.h"
+	<utility>
+	"Set.h"
+	"Edge.h"
+
+1367814450 /home/brock/curtin/2013/sem1/ami300/Assignment/greedy-search/include/Vertex.h
+	<string>
+
+1367831253 /home/brock/curtin/2013/sem1/ami300/Assignment/greedy-search/include/Set.h
+	"LinkedList.h"
+	"Pair.h"
+
+1367831500 /home/brock/curtin/2013/sem1/ami300/Assignment/greedy-search/include/LinkedList.h
+	"LinkedListNode.h"
+	"Iterator.h"
+
+1367830679 /home/brock/curtin/2013/sem1/ami300/Assignment/greedy-search/include/LinkedListNode.h
+	<algorithm>
+
+1367814450 /home/brock/curtin/2013/sem1/ami300/Assignment/greedy-search/include/Iterator.h
+	"LinkedListNode.h"
+	<iostream>
+
+1367814450 /home/brock/curtin/2013/sem1/ami300/Assignment/greedy-search/include/Pair.h
+
+1367814450 /home/brock/curtin/2013/sem1/ami300/Assignment/greedy-search/include/Edge.h
+	"Vertex.h"
+
+1367814450 /home/brock/curtin/2013/sem1/ami300/Assignment/greedy-search/include/Common.h
+
+1367814450 source:/home/brock/curtin/2013/sem1/ami300/Assignment/greedy-search/src/Edge.cpp
+	"Edge.h"
+	<cmath>
+
+1367831173 source:/home/brock/curtin/2013/sem1/ami300/Assignment/greedy-search/src/Graph.cpp
+	"Graph.h"
+	<iostream>
+	<fstream>
+	<sstream>
+	"Common.h"
+
+1367814450 source:/home/brock/curtin/2013/sem1/ami300/Assignment/greedy-search/src/Vertex.cpp
+	"Vertex.h"
+	<cmath>
+
+1368209907 source:/home/brock/curtin/2013/ami300/Assignment/greedy-search/src/GreedySearch.cpp
+	"GreedySearch.h"
+	"Set.h"
+	"Stack.h"
+	"Common.h"
+	<unistd.h>
+
+1368253311 /home/brock/curtin/2013/ami300/Assignment/greedy-search/include/GreedySearch.h
+	"Graph.h"
+
+1368255910 /home/brock/curtin/2013/ami300/Assignment/greedy-search/include/Stack.h
+	"LinkedList.h"
+
+1368268810 source:/home/brock/curtin/2013/ami300/Assignment/branch-search/main.cpp
+	<iostream>
+	"Graph.h"
+	"Common.h"
+	<string.h>
+	"Edge.h"
+	"Vertex.h"
+	"BranchSearch.h"
+
+1368290272 /home/brock/curtin/2013/ami300/Assignment/branch-search/include/Graph.h
+	"Vertex.h"
+	<utility>
+	"Set.h"
+	"Edge.h"
+	<fstream>
+
+1368258287 /home/brock/curtin/2013/ami300/Assignment/branch-search/include/Vertex.h
+	<string>
+
+1368293771 /home/brock/curtin/2013/ami300/Assignment/branch-search/include/Set.h
+	"LinkedList.h"
+	"Pair.h"
+	"Stack.h"
+	"Path.h"
+
+1368333790 /home/brock/curtin/2013/ami300/Assignment/branch-search/include/LinkedList.h
+	"LinkedListNode.h"
+	"Iterator.h"
+
+1368332621 /home/brock/curtin/2013/ami300/Assignment/branch-search/include/LinkedListNode.h
+	<algorithm>
+
+1368258287 /home/brock/curtin/2013/ami300/Assignment/branch-search/include/Iterator.h
+	"LinkedListNode.h"
+	<iostream>
+
+1368258287 /home/brock/curtin/2013/ami300/Assignment/branch-search/include/Pair.h
+
+1368330665 /home/brock/curtin/2013/ami300/Assignment/branch-search/include/Stack.h
+	"LinkedList.h"
+
+1368258287 /home/brock/curtin/2013/ami300/Assignment/branch-search/include/Edge.h
+	"Vertex.h"
+
+1368258287 /home/brock/curtin/2013/ami300/Assignment/branch-search/include/Common.h
+
+1368358570 /home/brock/curtin/2013/ami300/Assignment/branch-search/include/BranchSearch.h
+	"Graph.h"
+
+1368258287 source:/home/brock/curtin/2013/ami300/Assignment/branch-search/src/Edge.cpp
+	"Edge.h"
+	<cmath>
+
+1368291165 source:/home/brock/curtin/2013/ami300/Assignment/branch-search/src/Graph.cpp
+	"Graph.h"
+	<iostream>
+	<fstream>
+	<sstream>
+	"Common.h"
+
+1368258287 source:/home/brock/curtin/2013/ami300/Assignment/branch-search/src/Vertex.cpp
+	"Vertex.h"
+	<cmath>
+
+1368352667 source:/home/brock/curtin/2013/ami300/Assignment/branch-search/src/BranchSearch.cpp
+	"BranchSearch.h"
+	"Set.h"
+	"Vertex.h"
+	"Path.h"
+	"Common.h"
+
+1368336937 source:/home/brock/curtin/2013/ami300/Assignment/branch-search/src/Path.cpp
+	"Path.h"
+
+1368359680 /home/brock/curtin/2013/ami300/Assignment/branch-search/include/Path.h
+	"Vertex.h"
+	"Stack.h"
+

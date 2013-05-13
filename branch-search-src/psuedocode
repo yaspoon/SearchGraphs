@@ -1,0 +1,38 @@
+newPath add currentVertex
+currentPaths add newPath
+
+deadEndPaths = NULL
+
+goalFound = false
+exhaustedAllPaths = false
+
+goalPaths  //a list that holds all the paths to the goal
+
+while(!exhaustedAllPaths && goalPaths.getMinCostPath.cost < currentPaths.getMinCostPath)
+if(currentPaths.size == 0)
+	exhaustedAllPaths = true;
+else
+	shortestpath = currentPaths.getMinCostPath
+
+	if(shortestPath.getEndNode == goal) //we chose the path to the goal
+		goalFound = true
+		goalPath.add(shortestPath)
+		currentPaths.remove(shortestPath)
+	else
+		neighbours = shortestPath.getEndNode.getNeighbours
+
+		if(neighbours.size = 0)		//dead end path
+			deadEndPaths.add(shortestPath)
+			currentPaths.remove(shortestPath)
+		else
+			foreach(vertex in neighbours)
+				currentPaths.add(shortestPath.add(vertex)); //create new paths with the neighbours
+			end foreach
+			currentPaths.remove(shortest)
+		end if
+	endif
+endif
+
+end while
+
+

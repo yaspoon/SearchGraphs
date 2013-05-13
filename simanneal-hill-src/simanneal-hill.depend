@@ -1,0 +1,42 @@
+# depslib dependency file v1.0
+1368452518 source:/home/brock/curtin/2013/ami300/Assignment/simanneal-hill/main.cpp
+	<iostream>
+	"SimmulatedAnnealing.h"
+	<fstream>
+	<string.h>
+
+1368452140 source:/home/brock/curtin/2013/ami300/Assignment/simanneal-hill/src/Point.cpp
+	"Point.h"
+
+1368452210 /home/brock/curtin/2013/ami300/Assignment/simanneal-hill/include/Point.h
+
+1368449958 source:/home/brock/curtin/2013/ami300/Assignment/simanneal-hill/src/SimmulatedAnnealing.cpp
+	"SimmulatedAnnealing.h"
+	<fstream>
+	<iostream>
+	<sstream>
+	"Point.h"
+	"LinkedList.h"
+	"cmath"
+
+1368452670 /home/brock/curtin/2013/ami300/Assignment/simanneal-hill/include/SimmulatedAnnealing.h
+	<string>
+	"LinkedList.h"
+	"Point.h"
+
+1368361936 source:/home/brock/curtin/2013/ami300/Assignment/simanneal-hill/src/Map.cpp
+	"Map.h"
+
+1368361935 /home/brock/curtin/2013/ami300/Assignment/simanneal-hill/include/Map.h
+
+1368359761 /home/brock/curtin/2013/ami300/Assignment/simanneal-hill/include/LinkedList.h
+	"LinkedListNode.h"
+	"Iterator.h"
+
+1368332621 /home/brock/curtin/2013/ami300/Assignment/simanneal-hill/include/LinkedListNode.h
+	<algorithm>
+
+1368258287 /home/brock/curtin/2013/ami300/Assignment/simanneal-hill/include/Iterator.h
+	"LinkedListNode.h"
+	<iostream>
+
