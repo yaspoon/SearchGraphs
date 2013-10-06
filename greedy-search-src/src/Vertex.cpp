@@ -25,6 +25,12 @@ Vertex::Vertex(std::string vertName, float vertHeuristic) //Constructor with bot
     heuristic = vertHeuristic; //Set heuritistic to given one
 }
 
+Vertex::Vertex(const Vertex& inVert):
+name(inVert.name), heuristic(inVert.heuristic)
+{
+
+}
+
 Vertex::~Vertex() //Destructor
 {
     //dtor

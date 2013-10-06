@@ -86,6 +86,13 @@ class Stack
         {
             return theStack.noElements();
         }
+
+        void operator=(Stack<T>& inStack)
+        {
+
+            this->theStack = inStack.theStack;
+
+        }
     protected:
     private:
         LinkedList<T> theStack; //The list that the stack wraps around

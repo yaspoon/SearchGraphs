@@ -17,6 +17,7 @@ class Vertex
         Vertex();
         Vertex(std::string vertName);
         Vertex(std::string vertName, float vertHueristic);
+        Vertex(const Vertex& inVert);
         virtual ~Vertex();
 
         void setName(std::string newName);

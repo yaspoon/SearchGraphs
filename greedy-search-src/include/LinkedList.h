@@ -22,23 +22,40 @@ class LinkedList
         LinkedList() //Constructor initilises a empty list
         {
             head = NULL;
+            tail = NULL;
             count = 0;
+        }
+
+        //Copy constructor
+        LinkedList( const LinkedList<T>& inList):
+            head(NULL), tail(NULL), count(0)    //Need to initialse the members or else crazy shit happens when we try to copy elements across...
+        {
+            LinkedListNode<T> *currentNode = inList.head;
+
+            while(currentNode != NULL)
+            {
+                this->pushBack(currentNode->getData());
+                currentNode = currentNode->getNext();
+            }
         }
 
         ~LinkedList() //Destructor
         {
-            //int i = 0;
-            //LinkedListNode<T>* currentNode = head;
+            int i = 0;
 
-            /*for(i = 0; i < count; i++)
+            for(i = 0; i < count; i++)
             {
-                    LinkedListNode<T>* temp = currentNode;
-                    currentNode = currentNode->getNext();
+                    LinkedListNode<T>* temp = head;
+                    head = head->getNext();
+                    temp->setNext(NULL);
 
                     delete temp;
-            }*/
+            }
+
+            //DO NOT uncomment the following, it was what was causing the problem, it's just left here for the funny comment :3
             //delete head; this causes it to segfault when iterating over the list of vertices WTF WTF WTF WTF why has it suddenly broken
             //so it's just going to leak like a bitch till I get it working
+
             count = 0;
         }
 
@@ -50,6 +67,7 @@ class LinkedList
             if(count == 0)  //if the list if empty
             {
                 head = newNode; //Set start of the list to the new node
+                tail = newNode;
             }
             else   //Oh man pushing to the head is so much faster
             {
@@ -69,20 +87,12 @@ class LinkedList
             if(count == 0)  //if the list if empty
             {
                 head = newNode; //Set node to the head
+                tail = newNode;
             }
             else
             {
-                LinkedListNode<T> *lastNode = NULL;
-                LinkedListNode<T> *currentNode = head;
-
-                while(currentNode != NULL)  //Find the last node;
-                {
-                    lastNode = currentNode;
-                    currentNode = currentNode->getNext();
-                }
-                //ASSERTION to exit the loop we must have found the last node in the list
-                //so set the last node to point to this new node
-                lastNode->setNext(newNode);
+                tail->setNext(newNode);
+                tail = newNode;
             }
 
             count += 1; //Increate the counter
@@ -153,25 +163,74 @@ class LinkedList
 
         Iterator<T> end()
         {
-            LinkedListNode<T> *currentNode = head; //State at the head of the list
 
-            if(head != NULL) //Make sure the list isn't NULL, stop null dereference
-            {
-
-                while(currentNode->getNext() != NULL) //While there is another node
-                {
-                    currentNode = currentNode->getNext(); //Get the next node in the list
-                }
-                //ASSERTION Get here means we have the last node in the list
-            }
-
-            Iterator<T> retIt(currentNode); //Create a iterator to the found node, could be NULL if the list if empty
+            Iterator<T> retIt(tail); //Create a iterator to the found node, could be NULL if the list if empty
 
             return retIt;
+        }
+
+        void free()
+        {
+            int i = 0;
+
+            for(i = 0; i < count; i++)
+            {
+                    LinkedListNode<T>* temp = head;
+                    head = head->getNext();
+                    temp->setNext(NULL);
+
+                    delete temp;
+            }
+
+            count = 0;
+            head = NULL;
+            tail = NULL;
+        }
+
+        void operator=(LinkedList<T>& inList)
+        {
+            //Test that the list we are copying isn't our selves, or this will fail miserably when we free this list
+            //If the lists are the same this function is a noop
+            if(this != &inList)
+            {
+                //Since we are "copying" the other object we better get rid of all the stuff this list currently holds
+                this->free();
+
+                //Copy all the objects from the other list into this one
+                for(Iterator<T> iT = inList.begin(); iT != inList.end(); ++iT)
+                {
+                    T tmp = iT.getData();
+                    this->pushBack(tmp);
+                }
+            }
+            else
+            {
+                std::cout << "Attempted to assign a list to itself, this is a no-op" << std::endl;
+            }
+
+        }
+
+        LinkedList<T>& operator=( const LinkedList<T>& inList)
+        {
+            if(this != &inList)
+            {
+                this->free();
+
+                LinkedListNode<T> *currentNode = inList.head;
+
+                while(currentNode != NULL)
+                {
+                    this->pushBack(currentNode->getData());
+                    currentNode = currentNode->getNext();
+                }
+            }
+
+            return *this;
         }
     protected:
     private:
         LinkedListNode<T> *head; //Points to the start of the list
+        LinkedListNode<T> *tail;
         int count; //Number of nodes in the list
 
         //Helper function to find, remove and return the node at the front of the list
@@ -181,8 +240,18 @@ class LinkedList
 
             if( count > 0) // if the list isn't empty
             {
-                node = head; //Node to return is the start of the list
-                head = head->getNext(); //Set the head the to next node in the list
+                if(count == 1)
+                {
+                    node = head;
+                    head = NULL;
+                    tail = NULL;
+                }
+                else
+                {
+
+                    node = head; //Node to return is the start of the list
+                    head = head->getNext(); //Set the head the to next node in the list
+                }
                 count -= 1; //Reduce the counter
             }
 
@@ -198,6 +267,8 @@ class LinkedList
             if(count == 1) //if there is only one element in the list don't bother searching
             {
                 node = head; //The head in this case is the start and end of the list
+                head = NULL;
+                tail = NULL;
                 count -= 1; //Decrement the count
             }
             else if(count > 1)      //if this gets to below zero we are in serious trouble and should probably just abort anyway :/
@@ -214,6 +285,7 @@ class LinkedList
                 //ASSERTION node now points to the last node in the list, so last node now needs to remove it's pointer to node
                 //so node can the be returned to the caller
                 lastNode->setNext(NULL);
+                tail = lastNode;
 
                 count -= 1;
 

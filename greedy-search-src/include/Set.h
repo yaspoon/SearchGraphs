@@ -29,6 +29,11 @@ class Set
 
         }
 
+        Set(const Set<T>& inSet)
+        {
+            currentSet = inSet.currentSet;
+        }
+
         bool insert(T newElement) //Inserts a given element into the set if it doesn't already exist in the set, this set implentation has unique elements
         {
             bool retVal = false; //By default assume we failed to insert
@@ -112,6 +117,19 @@ class Set
 
             return theSet - tmp; //Subtract the two sets from each other
         }
+
+        void operator=(Set<T>& inSet)
+        {
+            this->currentSet = inSet.currentSet;
+        }
+
+        Set<T>& operator=(const Set<T>& inSet)
+        {
+            this->currentSet = inSet.currentSet;
+
+            return *this;
+        }
+
 
         //Finds the smallest element within the set, used by greedy search to find which neighbour
         //of the current node has the smallest heuristic and which it should choose

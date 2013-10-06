@@ -372,3 +372,9 @@ bool Graph::contains(std::string vertex)
 
     return retVal;
 }
+
+void Graph::operator=(Graph inGraph)
+{
+    vertices = inGraph.vertices;
+    edges = inGraph.edges;
+}

@@ -33,6 +33,7 @@ class Graph
 
         bool addVertex(Vertex newVert); //Checks if the vertex isn't already in the graph and then adds it
         Pair<Vertex, bool> findVertexByName(std::string vertex);
+        void operator=( Graph inGraph);
     protected:
     private:
         Set<Vertex> vertices; //The set of all vertices within the graph

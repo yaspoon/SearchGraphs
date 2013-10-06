@@ -21,38 +21,27 @@ class LinkedListNode
         LinkedListNode()
         {
             next = NULL;
-            data = NULL;
         }
 
         //When created if given some data make a copy and hold onto it.
         LinkedListNode(T nodeData)
         {
+            data = nodeData;
             next = NULL;
-            T *tmp = new T(nodeData);
-            data = tmp;
         }
 
         //It does nothing but needs to be defined
         ~LinkedListNode()
         {
-            if(data != NULL)
-            {
-                delete data;
-            }
+
         }
 
         //Returns the data object that is held by this node
         //if it's not null that is
         T getData()
         {
-            T tmp;
 
-            if(data != NULL)
-            {
-                tmp = *data;
-            }
-
-            return tmp;
+            return data;
         }
 
         //Return a pointer to the next node in the list
@@ -69,7 +58,7 @@ class LinkedListNode
     protected:
     private:
         LinkedListNode *next; //The next node in the list
-        T *data; //The data we hold onto
+        T data; //The data we hold onto
 
 };
 
