@@ -50,6 +50,7 @@ class Set
         //Total rip off of std pair but whatevs <3 std libs
         //Searches the set for a given element and returns a pair object which contains the found element and true
         //or the second element in the pair is set to false
+        //O(n)
         Pair<Iterator<T>, bool> find(T element)
         {
             Pair<Iterator<T>, bool> retVal; //Return object for the user
@@ -70,16 +71,19 @@ class Set
             return retVal;
         }
 
+        //O(1)
         Iterator<T> begin() //Returns a iterator to the start of the list
         {
             return currentSet.begin();
         }
 
+        //O(1)
         Iterator<T> end() //Returns a iterator to the end of the list
         {
             return currentSet.end();
         }
 
+        //O(1)
         int size() //Get the size of the set
         {
             return currentSet.noElements();
@@ -88,11 +92,14 @@ class Set
         Set<T> operator-(Set<T> inSet) //Subtract a given set from this one and return the new set, used in the greedysearch to remove neighbours we've already been to
         {
             Set<T> tmp; //Set to return
+            //O(n)
             for(Iterator<T> iT = currentSet.begin(); iT != currentSet.end(); ++iT) //Iterate over this set
             {
+                //O(n)
                 Pair<Iterator<T>, bool> vert = inSet.find(iT.getData()); //If the current element isn't in the other set then add it to the set to return
                 if(vert.second == false) //If we don't find the element within the given set
                 {
+                    //O(n)
                     tmp.insert(iT.getData()); //Insert the element into the return set
                 }
             }

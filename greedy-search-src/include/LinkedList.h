@@ -114,6 +114,7 @@ class LinkedList
         }
 
         //Get the last node in the list and return it to the user
+        //O(n)
         T popBack()
         {
             LinkedListNode<T> *node = popNodeBack(); //Call helper function to return last node in list
@@ -130,6 +131,7 @@ class LinkedList
         }
 
         //Used to test if the list is empty
+        //O(1)
         bool isEmpty()
         {
             bool retVal = true;
@@ -143,12 +145,14 @@ class LinkedList
         }
 
         //Get the current size of the list
+        //O(1)
         int noElements()
         {
             return count;
         }
 
         //Return a iterator to the start of the list
+        //O(1)
         Iterator<T> begin()
         {
             Iterator<T> myIt(head); //Creates a iterator object which starts at the head of the list
@@ -159,7 +163,9 @@ class LinkedList
         that points to that element, used for iterating over the list so
         you know if your at the end of the list
         It's extremely inefficient but it handles the case where the end object changes
-        between calls to ::end() so it's worth it for safety*/
+        between calls to ::end() so it's worth it for safety
+        O(1)
+        */
 
         Iterator<T> end()
         {
@@ -169,6 +175,7 @@ class LinkedList
             return retIt;
         }
 
+        //O(N)
         void free()
         {
             int i = 0;
@@ -187,6 +194,11 @@ class LinkedList
             tail = NULL;
         }
 
+        /*O(n)
+        Still O(N) even though there is a function call of O(N)
+        and a loop of O(N) which ends up being 2N which is just N
+        shifted by a constant so it's N
+        */
         void operator=(LinkedList<T>& inList)
         {
             //Test that the list we are copying isn't our selves, or this will fail miserably when we free this list
@@ -194,10 +206,10 @@ class LinkedList
             if(this != &inList)
             {
                 //Since we are "copying" the other object we better get rid of all the stuff this list currently holds
-                this->free();
+                this->free(); //O(n)
 
                 //Copy all the objects from the other list into this one
-                for(Iterator<T> iT = inList.begin(); iT != inList.end(); ++iT)
+                for(Iterator<T> iT = inList.begin(); iT != inList.end(); ++iT) //O(n)
                 {
                     T tmp = iT.getData();
                     this->pushBack(tmp);
@@ -210,6 +222,7 @@ class LinkedList
 
         }
 
+        //O(n) same as above
         LinkedList<T>& operator=( const LinkedList<T>& inList)
         {
             if(this != &inList)
@@ -234,6 +247,7 @@ class LinkedList
         int count; //Number of nodes in the list
 
         //Helper function to find, remove and return the node at the front of the list
+        //O(1)
         LinkedListNode<T> *popNodeFront()
         {
             LinkedListNode<T> *node = NULL; //Temporary node to hold return node, call be NULL if list is empty
@@ -259,6 +273,7 @@ class LinkedList
         }
 
         //Helper function to return the last node in the list
+        //O(n)
         LinkedListNode<T> *popNodeBack()
         {
 
