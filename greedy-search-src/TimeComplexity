@@ -1,0 +1,134 @@
+LinkedList
+pushFront
+	Both O(1) because it's constant time
+pushback
+	Original O(n)
+	Optimised O(1)
+popFront
+	O(1) for both
+popBack
+	O(n) for both since it has to loop because it's not doubly ended
+free
+	O(n) for both
+operator= (Copy assignment)
+	O(n) for both
+	
+	
+Set
+	find
+	Original O(n^2)
+		n+n^2
+		because retval = list.end() is a n op
+		for loop is n but the iterator.end() is also n so it's n^2
+		which ends up being O(n^2)
+	Optimised O(n)
+		O(1) for retval = list.end()
+		O(1) iterator.end() in for loop
+		O(n) for loop
+		so 1 + 1 + n = O(n)
+		
+
+
+	insert
+		Original O(n^2)
+			Because first have to find if the element exists which is n^2 op
+		Optimised O(n)
+			Because find is a n op
+	begin
+		Original O(1)
+		Optimised O(1)
+	end
+		Original O(n)
+		Optimised O(1)
+	size
+		Original O(1)
+		Optimised O(1)
+	Operator- on set
+		Original 
+			for loop O(n) iterator.end() O(n) so O(n^2)
+			find inside for loop O(n^2)
+			insert O(n^2)
+			so O(n^2) * (O(n^2) + O(n^2))
+			O(n^4)
+		Optimised
+			for loop O(n) iterator.end() O(1) so O(n)
+			find inside loop O(n)
+			insert O(n)
+			so O(n) * (O(n) + O(n))
+			O(n^2)
+	Operator- on stack
+		Original
+			while loop O(n)
+			set.insert O(n^2)
+			O(n^3)
+			set1 - set 2 O(n^4)
+			O(n^3)+O(n^4)
+			=O(n^4)
+		Optimised
+			While loop O(n)
+			set.insert O(n)
+			O(n^2)
+			set1 - set2 O(n^2)
+			O(n^2)+O(n^2)
+			=O(n^2)
+	Operator=
+		O(n) for both
+	smallest
+		Original 
+			O(n^2) because of for loop * iterator.end()
+		Optimised
+			O(n)
+Stack
+	push
+		Original O(1)
+		Optimised O(1)
+	pop
+		Original O(1)
+		Optimised O(1)
+	peak
+		O(1) both
+	begin
+		O(1) both
+	end
+		Original O(n)
+		Optimised O(1)
+	Operator==
+		Original
+			for loop n times
+				it1.end() n times
+				it2.end() n times
+				n* (n+n)
+				O(n^2)
+		Optimised
+			for loop n times
+				it1.end() 1 step
+				it2.end() 1 step
+			n*(1+1)
+			O(n)
+	size
+		O(1) both
+	Operator=
+		O(n) both
+		
+Graph
+	findVertexByName(string)
+		Original O(n^2) because iterator.end() is n as well
+		Optimised O(n)
+	findVertexByName(set,string)
+		same as above
+	Contains
+		Original O(n^2) because of call to findVertexByName
+		Optimised O(n) ditto
+	Operator=
+		n+n = O(n) same for both
+	Adjacent
+		Original n^2+n^2+n^2 = O(n^2)
+		Optimised n+n+n = O(n)
+	
+		
+			
+			
+	
+		
+		
+		
