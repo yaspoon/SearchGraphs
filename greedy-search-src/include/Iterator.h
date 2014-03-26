@@ -24,7 +24,7 @@ class Iterator
         Iterator() //Setup a blank iterator to not point to anything
         {
             count = 0;
-            currentNode = NULL;
+            currentNode = nullptr;
         }
 
         Iterator(LinkedListNode<T> *inHead) //Given the head of a list to point to
@@ -45,7 +45,7 @@ class Iterator
 
         void operator++() //Loads the next node in the list
         {
-            if(currentNode != NULL) //If we arn't at the end or a null list continue
+            if(currentNode != nullptr) //If we arn't at the end or a null list continue
             {
                 count++; //Set the count
                 currentNode = currentNode->getNext(); //Get the next node by loading it from the currentNode we have
@@ -57,7 +57,7 @@ class Iterator
         {
             bool retVal = false; //By default they arn't equal
 
-            if( currentNode != NULL) //Make sure we don't dereference a null pointer
+            if( currentNode != nullptr) //Make sure we don't dereference a null pointer
             {
                 if( (currentNode->getData()) == (inIt.getData()) ) //Compare the Nodes the two iterators point to
                 {
@@ -73,7 +73,7 @@ class Iterator
         {
             bool retVal = false; //By default they are equal
 
-            if( currentNode != NULL) //stops null pointer derefences
+            if( currentNode != nullptr) //stops null pointer derefences
             {
                 //if( (currentNode->getData()) != (inIt.getData()) )
                 {

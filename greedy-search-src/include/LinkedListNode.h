@@ -16,18 +16,18 @@ class LinkedListNode
     public:
         /*Sets up the defaul values
         Using null so you can I can iterate
-        over the list and test if NEXT=NULL
+        over the list and test if NEXT=nullptr
         without problems*/
         LinkedListNode()
         {
-            next = NULL;
+            next = nullptr;
         }
 
         //When created if given some data make a copy and hold onto it.
         LinkedListNode(T nodeData)
         {
             data = nodeData;
-            next = NULL;
+            next = nullptr;
         }
 
         //It does nothing but needs to be defined

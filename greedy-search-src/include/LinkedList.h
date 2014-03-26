@@ -21,18 +21,18 @@ class LinkedList
 
         LinkedList() //Constructor initilises a empty list
         {
-            head = NULL;
-            tail = NULL;
+            head = nullptr;
+            tail = nullptr;
             count = 0;
         }
 
         //Copy constructor
         LinkedList( const LinkedList<T>& inList):
-            head(NULL), tail(NULL), count(0)    //Need to initialse the members or else crazy shit happens when we try to copy elements across...
+            head(nullptr), tail(nullptr), count(0)    //Need to initialse the members or else crazy shit happens when we try to copy elements across...
         {
             LinkedListNode<T> *currentNode = inList.head;
 
-            while(currentNode != NULL)
+            while(currentNode != nullptr)
             {
                 this->pushBack(currentNode->getData());
                 currentNode = currentNode->getNext();
@@ -47,7 +47,7 @@ class LinkedList
             {
                     LinkedListNode<T>* temp = head;
                     head = head->getNext();
-                    temp->setNext(NULL);
+                    temp->setNext(nullptr);
 
                     delete temp;
             }
@@ -103,7 +103,7 @@ class LinkedList
         {
             LinkedListNode<T> *node = popNodeFront(); //use helper function to get the front node
             T data; //data object to return
-            if(node != NULL)//Stop null dereferences
+            if(node != nullptr)//Stop null dereferences
             {
                 data = T(node->getData()); //Set the return object to the one held in the front node
             }
@@ -119,7 +119,7 @@ class LinkedList
         {
             LinkedListNode<T> *node = popNodeBack(); //Call helper function to return last node in list
             T data;//Data object to return
-            if(node != NULL) //Stop null dereferences
+            if(node != nullptr) //Stop null dereferences
             {
                 data = T(node->getData()); //set data object to return, to the one held within the returned node
             }
@@ -184,14 +184,14 @@ class LinkedList
             {
                     LinkedListNode<T>* temp = head;
                     head = head->getNext();
-                    temp->setNext(NULL);
+                    temp->setNext(nullptr);
 
                     delete temp;
             }
 
             count = 0;
-            head = NULL;
-            tail = NULL;
+            head = nullptr;
+            tail = nullptr;
         }
 
         /*O(n)
@@ -231,7 +231,7 @@ class LinkedList
 
                 LinkedListNode<T> *currentNode = inList.head;
 
-                while(currentNode != NULL)
+                while(currentNode != nullptr)
                 {
                     this->pushBack(currentNode->getData());
                     currentNode = currentNode->getNext();
@@ -250,15 +250,15 @@ class LinkedList
         //O(1)
         LinkedListNode<T> *popNodeFront()
         {
-            LinkedListNode<T> *node = NULL; //Temporary node to hold return node, call be NULL if list is empty
+            LinkedListNode<T> *node = nullptr; //Temporary node to hold return node, call be NULL if list is empty
 
             if( count > 0) // if the list isn't empty
             {
                 if(count == 1)
                 {
                     node = head;
-                    head = NULL;
-                    tail = NULL;
+                    head = nullptr;
+                    tail = nullptr;
                 }
                 else
                 {
@@ -277,29 +277,29 @@ class LinkedList
         LinkedListNode<T> *popNodeBack()
         {
 
-            LinkedListNode<T> *node = NULL; //Node to return which has the last node in the list, can be null if list is empty
+            LinkedListNode<T> *node = nullptr; //Node to return which has the last node in the list, can be null if list is empty
 
             if(count == 1) //if there is only one element in the list don't bother searching
             {
                 node = head; //The head in this case is the start and end of the list
-                head = NULL;
-                tail = NULL;
+                head = nullptr;
+                tail = nullptr;
                 count -= 1; //Decrement the count
             }
             else if(count > 1)      //if this gets to below zero we are in serious trouble and should probably just abort anyway :/
             {
                 //If we have more then one element we have to traverse the list and find the last node
-                LinkedListNode<T> *lastNode = NULL; //Last node which is the node before the last node in the list we have to set this one's next to null
+                LinkedListNode<T> *lastNode = nullptr; //Last node which is the node before the last node in the list we have to set this one's next to null
                 node = head; //start at the head of the list
 
-                while(node->getNext() != NULL) //While we arn't at the end of the list
+                while(node->getNext() != nullptr) //While we arn't at the end of the list
                 {
                     lastNode = node; //Set the second last node to this current one
                     node = node->getNext(); //Set the current node to the next on in the list
                 }
                 //ASSERTION node now points to the last node in the list, so last node now needs to remove it's pointer to node
                 //so node can the be returned to the caller
-                lastNode->setNext(NULL);
+                lastNode->setNext(nullptr);
                 tail = lastNode;
 
                 count -= 1;
