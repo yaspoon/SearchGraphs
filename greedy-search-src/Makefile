@@ -1,5 +1,5 @@
 OBJS=Edge.o Graph.o Vertex.o GreedySearch.o
-CFLAGS=-g -I./include
+CFLAGS=-pg -g -I./include
 LIBS=
 EXE=greedy-search
 EXEOUTPUT=..

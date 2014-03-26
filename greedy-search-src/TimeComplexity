@@ -16,33 +16,36 @@ operator= (Copy assignment)
 	
 Set
 	find
-	Original O(n^2)
-		n+n^2
-		because retval = list.end() is a n op
-		for loop is n but the iterator.end() is also n so it's n^2
-		which ends up being O(n^2)
-	Optimised O(n)
-		O(1) for retval = list.end()
-		O(1) iterator.end() in for loop
-		O(n) for loop
-		so 1 + 1 + n = O(n)
+		Original O(n^2)
+			n+n^2
+			because retval = list.end() is a n op
+			for loop is n but the iterator.end() is also n so it's n^2
+			which ends up being O(n^2)
+		Optimised O(n)
+			O(1) for retval = list.end()
+			O(1) iterator.end() in for loop
+			O(n) for loop
+			so 1 + 1 + n = O(n)
+		OptimisedWithHash O(1)
 		
-
-
 	insert
 		Original O(n^2)
 			Because first have to find if the element exists which is n^2 op
 		Optimised O(n)
 			Because find is a n op
+		OptimisedWithHash O(1)
 	begin
 		Original O(1)
 		Optimised O(1)
+		Hash O(1) //If I implement tracking of the start index
 	end
 		Original O(n)
 		Optimised O(1)
+		Hash O(1) //If I implement track of end index
 	size
 		Original O(1)
 		Optimised O(1)
+		Hash O(1)
 	Operator- on set
 		Original 
 			for loop O(n) iterator.end() O(n) so O(n^2)
@@ -56,6 +59,11 @@ Set
 			insert O(n)
 			so O(n) * (O(n) + O(n))
 			O(n^2)
+		Hash
+			for loop O(n) iterator.end() O(1)
+				find O(1)
+				insert O(1)
+			O(n)
 	Operator- on stack
 		Original
 			while loop O(n)
@@ -71,13 +79,20 @@ Set
 			set1 - set2 O(n^2)
 			O(n^2)+O(n^2)
 			=O(n^2)
+		Hash
+			While loop O(n)
+				insert O(1)
+			set1 - set2  O(n)
+			=O(n)
 	Operator=
-		O(n) for both
+		O(n) for all
 	smallest
 		Original 
 			O(n^2) because of for loop * iterator.end()
 		Optimised
-			O(n)
+			O(n) // or O(1) if we track smallest on insertion
+		Hash
+			O(n) or O(1) if we track the smallest on insertion
 Stack
 	push
 		Original O(1)
@@ -114,6 +129,7 @@ Graph
 	findVertexByName(string)
 		Original O(n^2) because iterator.end() is n as well
 		Optimised O(n)
+		Hash O(1)
 	findVertexByName(set,string)
 		same as above
 	Contains
@@ -124,6 +140,81 @@ Graph
 	Adjacent
 		Original n^2+n^2+n^2 = O(n^2)
 		Optimised n+n+n = O(n)
+	Neighbours
+		Original O(n^2)+O(n^4) = O(n^4)
+		Optimised O(n)+O(n^2)
+		Hash O(1) + O(n) = O(n)
+	AddEdge
+		Original O(n^2)+O(n^2)+O(n^2) = O(n^2)
+		Optimised O(n)+O(n)+O(n) = O(n)
+	AddVertex
+		Original O(n^2)
+		Optimised O(n)
+	getVertexHeuristic
+		Original O(n^2)
+		Optimised O(n)
+	loadHeuristics
+		Original O(n^3) because iterates over n vertices and inserts them which is O(n^2)
+		Optimised O(n^2)
+	CreateGraph
+		Original O(n^3) for loadHeuristics + O(n) * ( O(n^2) + O(n^2) + O(n^2) ) = O(n^3)
+		Optimised O(n^2 ditto + O(n) * ( O(n) + O(n) + O(n) ) = O(n^2)
+		
+GreedySearch		
+	THE BIG ONE::search
+	Original O(n^2) + O(n^2)
+		while -> worst case visit all nodes so n
+			currentPath.push O(1)
+			visited.insert O(n^2)
+			neighbours O(n^4)
+			neighbours - visited O(n^4)
+				neighbours.smallest O((n-h)^2)
+				O(n-(h+1)) = O(n)
+		reverseAnswer O((h+1)^2) = O(h^2)
+			Worst case is that the goal node is a leaf node in the tree so if the height of the tree is h
+			then the size of current with will be h +1, so it will take O(h^2) operations to reverse the stack 
+			(we don't really care about the + 1 since it's constant)
+		printAnswer O(n)
+		
+		total
+		O(n^2) + O(n^2) + O(n) + O(n^3) + O(n^5) + O(n^5) + O(n^3) + O(n) + O(h^2) + O(n)
+		= O(n^5)
+			
+	
+	Optimised O(n) + O(n) 
+		while -> worst case is the same n
+			currentPath.push O(1)
+			visited.insert O(n)
+			neighbours O(n^2)
+			neighbours - visited O(n^2)
+				neighbours.smallest O((n-h))
+				O(n-(h+1)) = O(n)
+		reverseAnswer O(h+1) = O(h)
+		PrintAnswer O(n)
+		
+		total
+		O(n) + O(n) + O(n) + O(n^2) + O(n^3) + O(n^3) + O(n^2) + O(n) + O(h) + O(n)
+		= O(n^3)
+		
+	Hash
+		while -> worst is the same n
+			currentPath.push O(1)
+			visited.insert O(1)
+			neighbours O(n)
+			neighbours - visited O(n)
+				neighbours.smallest O(1)*O(n-h) because while loops runs n times - h the tree depth because it won't back track 
+				on the last node since it's the end
+				O(1) * O(n - (h+1)) + O(n)
+			reverseAnswer O(h+1) = O(h)
+			printAnswer O(n)
+			
+		total
+		O(1) + O(1) + O(n^2) + O(n^2) + O(n^2) + O(n^2) + O(h) + O(n)
+		= O(n^2)
+			
+				
+	
+		
 	
 		
 			
